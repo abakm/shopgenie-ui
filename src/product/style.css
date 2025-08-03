@@ -1,0 +1,14 @@
+ .brand-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .brand-logo {
+      width: 40px;
+      height: auto;
+    }
+    .brand-description {
+      max-width: 600px;
+    }
