@@ -1,7 +1,7 @@
 
 
 
-export default function Product({name, category, content}) {
+export default function Product({name, category, content, advantages, highlights}) {
 
 return(
 
@@ -17,19 +17,25 @@ return(
                             {content}
                         </div>
 
-                        <div class="product-pros">
+                        {advantages && <div class="product-pros">
                             <h4>✅ Key Advantages</h4>
                             
                             <ul class="pros-list">
-                                <li>budget-friendly</li>
-                                <li>powerful performance</li>
+                                 {advantages.map((advantage, _) => (
+                                    <li>{advantage}</li>
+                                    
+                                    ))}
+            
                             </ul>
-                        </div>
+                        </div>}
 
-                        <div class="product-highlights">
-                            <span class="highlight-tag">pricing: budget-friendly</span>
-                            <span class="highlight-tag">performance: powerful</span>
+                        {highlights && <div class="product-highlights">
+                             {highlights.map((highlight, _) => (
+                                    <span class="highlight-tag">{highlight}</span>
+                                    
+                                    ))}
                         </div>
+}
                     </div>
 
 );
