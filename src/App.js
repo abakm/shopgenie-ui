@@ -9,7 +9,6 @@ function App() {
 
 
  const [id, setID] = useState(null);
- const [status, setStatus] = useState('');
  const [query_data, setQuery_data] = useState({'status':null,' best_product':{}, 'products':[], 'youtube_link':null});
 
  console.log("QUERY STATUS", query_data);
@@ -33,12 +32,13 @@ function App() {
         )
         .then(data => {
             console.log(data["status"]);
-            setQuery_data({"status": data["status"], 'best_product':{}, 'products':{}, 'youtube_link':null});
             if(data["status"] === "Searching completed"){
                 setQuery_data({"status":data["status"], 'best_product':data['best_product'], 'products':data['products'], 'youtube_link':data['youtube_link']});
                 clearInterval(interval);
 
             }
+            else
+                setQuery_data({"status": data["status"], 'best_product':{}, 'products':{}, 'youtube_link':null});
 
                
 
@@ -77,15 +77,15 @@ function App() {
 
                 {query_data['products'] && query_data['products'].length > 0  && 
                 <div className="products-grid">
-                    {query_data['products'].map((product,_)=>{
+                    {query_data['products'].map((product,_)=>(
                         
-                        <Product name={product['name']}
-                         category={product['category']} 
-                         content={product['content']}
-                         advantages={product['pros']}
-                         highlights = {product['highlights']}/>
+                        <Product name={product.title}
+                         category={product.category} 
+                         content={product.content}
+                         advantages={product.pros}
+                         highlights = {product.highlights}/>
                         
-                    })}
+                    ))}
 
 
                     

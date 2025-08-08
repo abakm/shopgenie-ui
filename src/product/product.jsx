@@ -1,26 +1,28 @@
 
-
+import './style.css';
 
 export default function Product({name, category, content, advantages, highlights}) {
+     highlights = Array.isArray(highlights) ? highlights : [];
+     
 
 return(
 
-   <div class="product-card">
-          <div class="product-header">
+   <div className="product-card">
+          <div className="product-header">
             <div>
-                    <div class="product-title">{name}</div>
-                     <span class="product-category">{category}</span>
+                    <div className="product-title">{name}</div>
+                     <span className="product-category">{category}</span>
              </div>
               </div>
 
-                        <div class="product-content">
+                        <div className="product-content">
                             {content}
                         </div>
 
-                        {advantages && <div class="product-pros">
+                        {advantages && <div className="product-pros">
                             <h4>✅ Key Advantages</h4>
                             
-                            <ul class="pros-list">
+                            <ul className="pros-list">
                                  {advantages.map((advantage, _) => (
                                     <li>{advantage}</li>
                                     
@@ -29,9 +31,9 @@ return(
                             </ul>
                         </div>}
 
-                        {highlights && <div class="product-highlights">
+                        {highlights && <div className="product-highlights">
                              {highlights.map((highlight, _) => (
-                                    <span class="highlight-tag">{highlight}</span>
+                                    <span className="highlight-tag">{highlight}</span>
                                     
                                     ))}
                         </div>
