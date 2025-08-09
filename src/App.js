@@ -14,9 +14,11 @@ function App() {
  console.log("QUERY STATUS", query_data);
  
  useEffect(()=>{
-    console.log("USEEFFECT", id)
     if(!id)
         return;
+   else if(typeof id !== 'number') {
+    setQuery_data({"status": id, 'best_product':{}, 'products':{}, 'youtube_link':null});
+}
     else{
     const interval = setInterval(()=>{
         console.log(`Querying:${id}`)
@@ -42,7 +44,10 @@ function App() {
 
                
 
-        })
+        }).catch(error=>{
+            setQuery_data({"status": `Unable to connect to backend server`, 'best_product':{}, 'products':{}, 'youtube_link':null});
+
+    });   
     }, 1000)
      return () => clearInterval(interval);
 }
@@ -61,7 +66,7 @@ function App() {
 
             {query_data['status'] && <div className="results-container">
                 <div className="search-status">
-                    <span>✅</span>
+                     {query_data['status']=== "Searching completed" &&  <span>✅</span>}
                     <div>
                         <strong>Search Status:</strong>{query_data['status']}<br/>
                     </div>
@@ -69,7 +74,7 @@ function App() {
 
                 {query_data['status'] === "Searching completed"&& (
                      <>
-                    {query_data['best_product'] && <div className="best-product-banner">
+                    {query_data['best_product'] && Object.entries(query_data['best_product']).length > 0 && <div className="best-product-banner">
                    
                         <h3>🏆 Best Recommendation: {query_data['best_product']["product_name"]}</h3>
                         <p>{query_data['best_product']["justification"]}</p>

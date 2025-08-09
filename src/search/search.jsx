@@ -19,8 +19,9 @@ export default function Search({setID}){
       }).then(
         response=>{
             const status = response.status;
+            console.log("STATUS CODE: " ,status);
             response = response.json()
-            if(status==200)
+            if(status===200)
                 return response
             else
                 throw new Error(response);
@@ -32,6 +33,9 @@ export default function Search({setID}){
         setID(data['query_id'])
 
     }).catch(error=>{
+      console.error('Error:', error.message);
+       setID(`❌Unable to connect to backend server`);
+
 
     });   
   }
