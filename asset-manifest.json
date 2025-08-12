@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/abakm/shopgenie-ui/static/css/main.ec851012.css",
+    "main.js": "/abakm/shopgenie-ui/static/js/main.84b7f1b0.js",
+    "static/js/453.2001358a.chunk.js": "/abakm/shopgenie-ui/static/js/453.2001358a.chunk.js",
+    "index.html": "/abakm/shopgenie-ui/index.html",
+    "main.ec851012.css.map": "/abakm/shopgenie-ui/static/css/main.ec851012.css.map",
+    "main.84b7f1b0.js.map": "/abakm/shopgenie-ui/static/js/main.84b7f1b0.js.map",
+    "453.2001358a.chunk.js.map": "/abakm/shopgenie-ui/static/js/453.2001358a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ec851012.css",
+    "static/js/main.84b7f1b0.js"
+  ]
+}
