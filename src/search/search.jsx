@@ -7,7 +7,7 @@ export default function Search({setID}){
 
 
   function post(){
-    fetch('http://localhost:5000/api/post', {
+    fetch('https://shopgenie-api-production-071f.up.railway.app/api/post', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Search from './search/search'
 import Product from './product/product';
+// import . from './common'
 
 function App() {
 
@@ -22,7 +23,7 @@ function App() {
     else{
     const interval = setInterval(()=>{
         console.log(`Querying:${id}`)
-        fetch(`http://localhost:5000/api/get/${id}`)
+        fetch(`https://shopgenie-api-production-071f.up.railway.app/api/get/${id}`)
         .then(response=>{
             const status = response.status;
                 response = response.json()
