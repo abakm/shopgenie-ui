@@ -1,0 +1,1 @@
+backend_url = "https://shopgenie-api-production-071f.up.railway.app";
