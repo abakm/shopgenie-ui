@@ -27,7 +27,7 @@ function App() {
         .then(response=>{
             const status = response.status;
                 response = response.json()
-                if(status==200)
+                if(status===200)
                     return response
                 else
                     throw new Error(response);
