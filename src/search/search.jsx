@@ -1,13 +1,22 @@
 
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './style.css';
+import backend_url from "../common";
 export default function Search({setID}){
      const query = useRef();
-     const email  = useRef()
+     const email  = useRef();
+     const [valid, setValid] = useState(true);
+
 
 
   function post(){
-    fetch('https://shopgenie-api-production-071f.up.railway.app/api/post', {
+    
+    const submit =  query.current.value.trim().length>0 && email.current && /\S+@\S+\.\S+/.test(email.current.value)
+    setValid(submit);
+
+    if(submit){
+
+    fetch(`${backend_url}/api/post`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -37,19 +46,22 @@ export default function Search({setID}){
        setID(`❌Unable to connect to backend server`);
 
 
-    });   
+    });
+  }
+  
   }
     
 
   return(<div className="search-form">
         <div className="form-group">
             <label for="query">What are you looking for?</label>
-            <input type="text" id="query" placeholder="e.g., Best smartphones brands in India"  ref={query}/>
+            <input type="text" id="query" placeholder="e.g., Best smartphones brands in India"  ref={query} required/>
         </div>
         <div className="form-group">
             <label for="email">Your Email Address</label>
-            <input type="email" id="email" placeholder="your.email@example.com" ref={email}/>
+            <input type="email" id="email" placeholder="your.email@example.com" ref={email} required/>
         </div>
+        {!valid && <><span style={{ color: 'red' }}>query or email are not valid</span><br/></>}
         <button class="search-btn" onClick={post}>
             <span>🚀 Search Products</span>
         </button>
