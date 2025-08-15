@@ -99,7 +99,7 @@ function App() {
 
                 {query_data['youtube_link'] &&  <div className="youtube-section">
                     <h4>📺 Watch Related Video</h4>
-                    <a href={query_data['youtube_link']} target="_blank" class="youtube-btn">
+                    <a href={query_data['youtube_link']} target="_blank" rel="noreferrer" className="youtube-btn">
                         Watch on YouTube
                     </a>
                 </div>
