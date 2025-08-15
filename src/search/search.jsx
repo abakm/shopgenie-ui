@@ -1,5 +1,5 @@
 
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import './style.css';
 import backend_url from "../common";
 export default function Search({setID}){
